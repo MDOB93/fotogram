@@ -3,6 +3,47 @@
     padding: 0px;
 }
 
+body {
+ background: #09212A ;
+}
+
+header {
+    background: #0d3340;
+    padding: 20px 140px 20px 140px;
+    margin-bottom: 386px;
+}
+
+.mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: Figtree-ExtraBold;
+    color: #fff;
+    text-align: center;
+}
+
+.img-container {
+    height: 150px;
+    width: 150px;
+    border: 2px solid #124658;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.img-container img {
+    height: 150px;
+    width: 150px;
+}
+
+footer {
+    height: 103px;
+    background: #0d3340;
+}
+
 
 @font-face {
     font-family: 'Figtree-Regular';
