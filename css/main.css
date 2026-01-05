@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+@font-face {
+    font-family: 'Figtree-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Figtree-Regular.eot');
+    /* IE9 Compat Modes */
+    src: local(''), url('../fonts/Figtree-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/Figtree-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/Figtree-Regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/Figtree-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Figtree-Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Figtree-Medium.eot');
+    /* IE9 Compat Modes */
+    src: local(''), url('../fonts/Figtree-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/Figtree-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/Figtree-Medium.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/Figtree-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Figtree-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Figtree-Bold.eot');
+    /* IE9 Compat Modes */
+    src: local(''), url('../fonts/Figtree-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/Figtree-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/Figtree-Bold.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/Figtree-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Figtree-ExtraBold';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/Figtree-ExtraBold.eot');
+    /* IE9 Compat Modes */
+    src: local(''), url('../fonts/Figtree-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/Figtree-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/Figtree-ExtraBold.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/Figtree-ExtraBold.ttf') format('truetype'), /* Safari, Android, iOS */
+    /* Legacy iOS */
+}
