@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotogram</title>
 </head>
-<body>
-    
+<body onload="render()">
+    <h1>Your personal photo album</h1>
+    <section id="content">
+        
+    </section>
+
+    <dialog id="myDialog" aria-labelledby="dialogTitle" aria-describedby="dialgDescr">
+        <header>
+            <h2 id="dialogTitle">
+                Mein Dialog
+            </h2>
+         </header>
+
+        <section>
+            <p id="dialgDescr">Text Infos hier einfügen ...</p>
+         </section>
+
+         <footer>
+            <button aria-label="Dialog schließen" onclick="closeDialog()">Schließen</button>
+        </footer>
+    </dialog>
 </body>
+<script src="./scripts/script.js"></script>
 </html>
