@@ -27,6 +27,8 @@ function getImgHtml(index) {
     return `<div class="img-container" onclick="openDialog()"><img src="${images[index]}" alt="" ></div>`
 }
 
+const dialogRef = document.getElementById('myDialog');
+
 function openDialog() {
     dialogRef.showModal();
 }

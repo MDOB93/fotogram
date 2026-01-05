@@ -6,26 +6,45 @@
     <title>Fotogram</title>
 </head>
 <body onload="render()">
-    <h1>Your personal photo album</h1>
-    <section id="content">
-        
+    <header>
+        <div class="logoImgH"><img src="" alt=""></div>
+    </header>
+
+    <section class="mainContent">
+        <h1>Your personal photo album</h1>
+        <div id="content">
+            
+        </div>
     </section>
 
     <dialog id="myDialog" aria-labelledby="dialogTitle" aria-describedby="dialgDescr">
         <header>
             <h2 id="dialogTitle">
-                Mein Dialog
+                titel vom bild
             </h2>
          </header>
 
         <section>
-            <p id="dialgDescr">Text Infos hier einfügen ...</p>
+            <img src="link vom bild was angeklickt wurde" alt="">
          </section>
 
          <footer>
-            <button aria-label="Dialog schließen" onclick="closeDialog()">Schließen</button>
+            <div><button class="btnLeft"></button></div>
+            <div>ausgabe bild 1/12</div>
+            <div><button class="btnRight"></button></div>
         </footer>
     </dialog>
+
+    <footer>
+        <div class="footerImgTxt">
+            <div class="logoImgF">
+                <img src="" alt="">
+            </div>
+            <div class="footerText">
+                <p></p>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="./scripts/script.js"></script>
 </html>
