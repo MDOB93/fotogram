@@ -57,8 +57,29 @@ h1 {
 }
 
 footer {
-    height: 103px;
+    height: 100px;
     background: #0d3340;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+}
+
+.footerImgTxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logoImgF {
+    margin-top: 16px;
+}
+
+.footerText p {
+    color: #fff;
+    margin-bottom: 16px;
 }
 
 
