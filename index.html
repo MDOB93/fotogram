@@ -24,18 +24,19 @@
     <dialog id="myDialog" aria-labelledby="dialogTitle" aria-describedby="dialgDescr">
         <header>
             <h2 id="dialogTitle">
-                titel vom bild
+                
             </h2>
          </header>
 
         <section>
-            <img src="link vom bild was angeklickt wurde" alt="">
+            <img id="imgDialog" src="" alt="">
          </section>
 
          <footer>
-            <div><button class="btnLeft"></button></div>
-            <div>ausgabe bild 1/12</div>
-            <div><button class="btnRight"></button></div>
+            <!-- besser die ID bennen -->
+             <div><button id="back" class="btnRight">zurück</button></div>
+             <div id="imgCounter"></div>
+             <div><button id="for" class="btnLeft">vor</button></div>
         </footer>
     </dialog>
 

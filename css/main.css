@@ -4,7 +4,10 @@
 }
 
 body {
- background: #09212A ;
+    min-height: 100vh;
+    background: #09212A;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -27,6 +30,7 @@ header {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 #content {
@@ -80,6 +84,7 @@ footer {
 .footerText p {
     color: #fff;
     margin-bottom: 16px;
+    font-family: Figtree-Regular;
 }
 
 

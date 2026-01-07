@@ -13,6 +13,21 @@ const images = [
     './img/f2b056a08d5edba809ca216fa6aa66a4bb612ea8.jpg'
 ]
 
+const ImgTitel = [
+    'Berg am See im Winter',
+    'Baum im Schnee',
+    'Vogel auf Ast',
+    'Person auf Stein',
+    'Ente im Wasser',
+    'dunkle Straße Futoristisch',
+    'dunkler Wolkenhimmel Gewitter',
+    'Wetterauge aus dem Orbit',
+    'Puma am Stein',
+    'Fjiord Fluss Berg',
+    'Vogel auf steinen',
+    'Berglandschaft Winter klarerHimmel'
+]
+
 // get HTML-Element -> for-loop to all img -> every img get HTML in DOM | transported index
 function render(){
     let contentRef = document.getElementById('content')
@@ -24,11 +39,59 @@ function render(){
 
 // get index from render() | build div/img get src from array (images)
 function getImgHtml(index) {
-    return `<div class="img-container" onclick="openDialog()"><img src="${images[index]}" alt="" ></div>`
+    return `<div class="img-container" onclick="openDialog(${index})"><img src="${images[index]}" alt="${ImgTitel[index]}" ></div>`
 }
 
 const dialogRef = document.getElementById('myDialog');
+const dialogImgRef = document.getElementById('imgDialog');
+const dialogTitleRef = document.getElementById('dialogTitle')
+const imgCountRef = document.getElementById('imgCounter')
+const btnForRef = document.getElementById('for')// besser die ID bennen
+const btnBackRef = document.getElementById('back')// besser die ID bennen
 
-function openDialog() {
+
+
+function openDialog(index) {
+    dialogTitleRef.innerHTML = ImgTitel[index]
+    dialogImgRef.setAttribute('src', images[index])
+    dialogImgRef.setAttribute('alt', ImgTitel[index]+ '.jpg')
+    imgCountRef.innerHTML = (index + 1) + '/' + images.length
+    btnForRef.setAttribute('onclick', `imgForward(${index})`)
+    btnBackRef.setAttribute('onclick', `imgBackwards(${index})`)
     dialogRef.showModal();
+}
+
+function imgForward(index) {
+    let nextImg;
+
+    if (index >= images.length - 1) {
+        nextImg = 0;
+    } else {
+        nextImg = index + 1
+    }// if the last number is reached -> start again from the beginning, else add 1
+
+    dialogTitleRef.innerHTML = ImgTitel[nextImg]
+    dialogImgRef.setAttribute('src', images[nextImg])
+    dialogImgRef.setAttribute('alt', ImgTitel[nextImg]+ '.jpg')
+    imgCountRef.innerHTML = (nextImg + 1) + '/' + images.length
+    btnForRef.setAttribute('onclick', `imgForward(${nextImg})`)
+    btnBackRef.setAttribute('onclick', `imgBackwards(${nextImg})`)
+}
+
+function imgBackwards(index) {
+    let prevImg;
+    console.log(index);
+    
+    if (index <= 0) {
+    prevImg = images.length -1 ;
+    } else {
+    prevImg = index - 1
+    }// if last number reached < 0 (-1), then calculate total (1-12 or 0-11) -1, else take current number -1
+
+    dialogTitleRef.innerHTML = ImgTitel[prevImg]
+    dialogImgRef.setAttribute('src', images[prevImg])
+    dialogImgRef.setAttribute('alt', ImgTitel[prevImg]+ '.jpg')
+    imgCountRef.innerHTML = (prevImg + 1) + '/' + images.length
+    btnForRef.setAttribute('onclick', `imgForward(${prevImg})`)
+    btnBackRef.setAttribute('onclick', `imgBackwards(${prevImg})`)
 }
