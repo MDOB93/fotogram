@@ -9,15 +9,32 @@ body {
 
 header {
     background: #0d3340;
+    display: flex;
+    justify-content: center;
     padding: 20px 140px 20px 140px;
-    margin-bottom: 386px;
+    margin-bottom: 40px;
+}
+
+.logoImgH {
+    height: 32px;
+}
+
+.logoImgH img {
+    height: 32px;
 }
 
 .mainContent {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 40px 0 40px 0;
 }
 
 h1 {
