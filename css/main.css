@@ -88,6 +88,56 @@ footer {
 }
 
 
+/* scrollbar unten muss noch weg passt noch nicht */
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    padding: 32px 16px 32px 16px;
+    background: #09212A;
+    height: 75%;
+    width: 375px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog[open] {
+    display: flex;
+}
+
+#myDialog header {
+    background: none;
+    color: #fff;
+    padding: 0;
+}
+
+#myDialog section {
+    height: 300px;
+    width: 330px;
+    margin-bottom: 80px;
+}
+
+
+#myDialog #imgDialog {
+    height: 300px;
+    width: 330px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#myDialog footer {
+    background: none;
+}
+
+
 @font-face {
     font-family: 'Figtree-Regular';
     font-style: normal;

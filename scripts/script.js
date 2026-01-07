@@ -49,8 +49,6 @@ const imgCountRef = document.getElementById('imgCounter')
 const btnForRef = document.getElementById('for')// besser die ID bennen
 const btnBackRef = document.getElementById('back')// besser die ID bennen
 
-
-
 function openDialog(index) {
     dialogTitleRef.innerHTML = ImgTitel[index]
     dialogImgRef.setAttribute('src', images[index])
@@ -80,8 +78,7 @@ function imgForward(index) {
 
 function imgBackwards(index) {
     let prevImg;
-    console.log(index);
-    
+
     if (index <= 0) {
     prevImg = images.length -1 ;
     } else {
@@ -95,3 +92,14 @@ function imgBackwards(index) {
     btnForRef.setAttribute('onclick', `imgForward(${prevImg})`)
     btnBackRef.setAttribute('onclick', `imgBackwards(${prevImg})`)
 }
+
+dialogRef.addEventListener('click', (event) => {
+    if (event.target === dialogRef) {
+        dialogRef.close();
+    }
+});
+
+dialogRef.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    dialogRef.close();
+});
