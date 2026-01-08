@@ -10,6 +10,7 @@ body {
     flex-direction: column;
 }
 
+/* HEADER */
 header {
     background: #0d3340;
     display: flex;
@@ -26,11 +27,16 @@ header {
     height: 32px;
 }
 
+/* MAIN CONTENT */
+main {
+    display: flex;
+    flex-grow: 1;
+}
+
 .mainContent {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    flex-grow: 1;
 }
 
 #content {
@@ -60,6 +66,7 @@ h1 {
     width: 150px;
 }
 
+/* FOOTER */
 footer {
     height: 100px;
     background: #0d3340;
@@ -115,6 +122,10 @@ dialog[open] {
     display: flex;
 }
 
+dialog main {
+    padding: 0;
+}
+
 #myDialog header {
     background: none;
     padding: 0;
@@ -146,7 +157,7 @@ dialog[open] {
     font-family: Figtree-Medium;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    gap: 80px;
 }
 
 #myDialog footer #imgCounter {
@@ -154,16 +165,58 @@ dialog[open] {
     text-align: center;
 }
 
-@media (min-width: 767px) {
-    
+/* MOBILE TABLET ULTRAWIDE */
+@media (min-width: 991px) {
+    dialog {
+        width: 675px;
+    }
+
+    #myDialog section {
+        height: 400px;
+        width: 600px;
+    }
+
+
+    #myDialog #imgDialog {
+        height: 400px;
+        width: 600px;
+    }
 }
 
 @media (min-width: 1280px) and (max-width: 1920px) {
+    header {
+        justify-content: flex-start;
+    }
+
+    main {
+        padding-left: 140px;
+        padding-right: 140px;
+    }
+
 
 }
 
-@media (min-width: 1921px) {
+@media (min-width: 1440px) {
+    header {
+        padding-left: calc((100% - 1440px) / 2);
+        padding-right: calc((100% - 1440px) / 2);
+    }
 
+    main {
+        padding-left: calc((100% - 1440px) / 2);
+        padding-right: calc((100% - 1440px) / 2);
+    }
+}
+
+@media(max-width: 3440px) and (min-width: 1921px) {
+    header {
+        justify-content: flex-start;
+    }
+
+    dialog {
+        width: 600px;
+        height: 45%;
+    }
 }
 
 /* FONTS */

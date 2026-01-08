@@ -39,15 +39,15 @@ function render(){
 
 // get index from render() | build div/img get src from array (images)
 function getImgHtml(index) {
-    return `<div class="img-container" onclick="openDialog(${index})"><img src="${images[index]}" alt="${ImgTitel[index]}" ></div>`
+    return `<div class="img-container" onclick="openDialog(${index})" aria-labelledby="imgContainer" aria-describedby="imgContainer"><img src="${images[index]}" alt="${ImgTitel[index]}" ></div>`
 }
 
 const dialogRef = document.getElementById('myDialog');
 const dialogImgRef = document.getElementById('imgDialog');
 const dialogTitleRef = document.getElementById('dialogTitle')
 const imgCountRef = document.getElementById('imgCounter')
-const btnForRef = document.getElementById('for')// besser die ID bennen
-const btnBackRef = document.getElementById('back')// besser die ID bennen
+const btnForRef = document.getElementById('forBtnIMG')
+const btnBackRef = document.getElementById('backBtnImg')
 
 function openDialog(index) {
     dialogTitleRef.innerHTML = ImgTitel[index]
