@@ -158,6 +158,7 @@ dialog main {
     #myDialog section {
         height: 400px;
         width: 600px;
+        margin-bottom: 25px;
     }
     #myDialog #imgDialog {
         height: 400px;
