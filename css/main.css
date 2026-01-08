@@ -94,6 +94,7 @@ dialog {
     left: 50%;
     transform: translate(-50%, -50%);
     border: none;
+    border-radius: 40px;
     padding: 32px 16px 32px 16px;
     background: #09212A;
     height: 75%;
@@ -143,6 +144,26 @@ dialog[open] {
 #myDialog footer {
     background: none;
     font-family: Figtree-Medium;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#myDialog footer #imgCounter {
+    width: 40px;
+    text-align: center;
+}
+
+@media (min-width: 767px) {
+    
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+
+}
+
+@media (min-width: 1921px) {
+
 }
 
 /* FONTS */
