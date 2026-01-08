@@ -2,14 +2,12 @@
     margin: 0px;
     padding: 0px;
 }
-
 body {
     min-height: 100vh;
     background: #09212A;
     display: flex;
     flex-direction: column;
 }
-
 /* HEADER */
 header {
     background: #0d3340;
@@ -18,27 +16,22 @@ header {
     padding: 20px 140px 20px 140px;
     margin-bottom: 40px;
 }
-
 .logoImgH {
     height: 32px;
 }
-
 .logoImgH img {
     height: 32px;
 }
-
 /* MAIN CONTENT */
 main {
     display: flex;
     flex-grow: 1;
 }
-
 .mainContent {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-
 #content {
     display: flex;
     justify-content: center;
@@ -46,26 +39,26 @@ main {
     gap: 16px;
     margin: 40px 0 40px 0;
 }
-
 h1 {
     font-family: Figtree-ExtraBold;
     color: #fff;
     text-align: center;
 }
-
 .img-container {
     height: 150px;
     width: 150px;
     border: 2px solid #124658;
     border-radius: 16px;
     overflow: hidden;
+    cursor: pointer;
 }
-
+.img-container:hover {
+    border: 2px solid #0e627d;
+}
 .img-container img {
     height: 150px;
     width: 150px;
 }
-
 /* FOOTER */
 footer {
     height: 100px;
@@ -75,7 +68,6 @@ footer {
     border-top-left-radius: 45%;
     border-top-right-radius: 45%;
 }
-
 .footerImgTxt {
     display: flex;
     justify-content: center;
@@ -83,17 +75,14 @@ footer {
     flex-direction: column;
     gap: 8px;
 }
-
 .logoImgF {
     margin-top: 16px;
 }
-
 .footerText p {
     color: #fff;
     margin-bottom: 16px;
     font-family: Figtree-Regular;
 }
-
 /* DIALOG */
 dialog {
     position: fixed;
@@ -105,120 +94,112 @@ dialog {
     padding: 32px 16px 32px 16px;
     background: #09212A;
     height: 75%;
-    width: 375px;
+    width: 320px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: #fff;
     outline: none;
 }
-
 dialog::backdrop {
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.5);
 }
-
 dialog[open] {
     display: flex;
 }
-
 dialog main {
     padding: 0;
 }
-
 #myDialog header {
     background: none;
     padding: 0;
 }
-
 #myDialog header img {
     position: absolute;
     top: 16px;
     left: 88%;
+}
+#myDialog header img:hover {
+    filter: drop-shadow(0px 0px 4px #fff);
     cursor: pointer;
 }
-
 #myDialog section {
     height: 400px;
-    width: 330px;
+    width: 265px;
     margin-bottom: 80px;
 }
-
-
 #myDialog #imgDialog {
     height: 400px;
-    width: 330px;
+    width: 265px;
     object-fit: cover;
     overflow: hidden;
 }
-
 #myDialog footer {
     background: none;
     font-family: Figtree-Medium;
     justify-content: space-between;
     align-items: center;
-    gap: 80px;
+    gap: 45px;
 }
-
 #myDialog footer #imgCounter {
     width: 40px;
     text-align: center;
 }
-
+#myDialog footer img:hover {
+    filter: drop-shadow(0px 0px 4px #FD5B4F);
+    cursor: pointer;
+}
 /* MOBILE TABLET ULTRAWIDE */
-@media (min-width: 991px) {
+@media (min-width: 768px) {
     dialog {
         width: 675px;
     }
-
     #myDialog section {
         height: 400px;
         width: 600px;
     }
-
-
     #myDialog #imgDialog {
         height: 400px;
         width: 600px;
     }
 }
-
-@media (min-width: 1280px) and (max-width: 1920px) {
+@media (min-width: 1024px) and (max-width: 1920px) {
     header {
         justify-content: flex-start;
     }
-
     main {
         padding-left: 140px;
         padding-right: 140px;
     }
-
-
 }
-
 @media (min-width: 1440px) {
     header {
         padding-left: calc((100% - 1440px) / 2);
         padding-right: calc((100% - 1440px) / 2);
     }
-
     main {
         padding-left: calc((100% - 1440px) / 2);
         padding-right: calc((100% - 1440px) / 2);
     }
 }
-
 @media(max-width: 3440px) and (min-width: 1921px) {
     header {
         justify-content: flex-start;
     }
-
     dialog {
-        width: 600px;
-        height: 45%;
+        width: 1000px;
+        height: 60%;
+    }
+    #myDialog section {
+        height: 600px;
+        width: 900px;
+    }
+    #myDialog #imgDialog {
+        height: 600px;
+        width: 900px;
     }
 }
-
 /* FONTS */
 @font-face {
     font-family: 'Figtree-Regular';
@@ -232,7 +213,6 @@ dialog main {
     url('../fonts/Figtree-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
     /* Legacy iOS */
 }
-
 @font-face {
     font-family: 'Figtree-Medium';
     font-style: normal;
@@ -245,7 +225,6 @@ dialog main {
     url('../fonts/Figtree-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
     /* Legacy iOS */
 }
-
 @font-face {
     font-family: 'Figtree-Bold';
     font-style: normal;
@@ -258,7 +237,6 @@ dialog main {
     url('../fonts/Figtree-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
     /* Legacy iOS */
 }
-
 @font-face {
     font-family: 'Figtree-ExtraBold';
     font-style: normal;
