@@ -25,7 +25,7 @@ const ImgTitel = [
     'Gpard am Stein',
     'Fjiord Fluss Berg',
     'Vogel auf steinen',
-    'Berglandschaft Winter klarerHimmel'
+    'Berglandschaft Winter'
 ]
 
 // get HTML-Element -> for-loop to all img -> every img get HTML in DOM | transported index
@@ -92,6 +92,10 @@ function imgBackwards(index) {
     btnForRef.setAttribute('onclick', `imgForward(${prevImg})`)
     btnBackRef.setAttribute('onclick', `imgBackwards(${prevImg})`)
 }
+
+    function closeDialog() {
+        dialogRef.close();
+    }
 
 dialogRef.addEventListener('click', (e) => {
     if (e.target !== dialogRef) {

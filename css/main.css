@@ -87,8 +87,7 @@ footer {
     font-family: Figtree-Regular;
 }
 
-
-/* scrollbar unten muss noch weg passt noch nicht */
+/* DIALOG */
 dialog {
     position: fixed;
     top: 50%;
@@ -102,6 +101,8 @@ dialog {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: #fff;
+    outline: none;
 }
 
 dialog::backdrop {
@@ -115,19 +116,25 @@ dialog[open] {
 
 #myDialog header {
     background: none;
-    color: #fff;
     padding: 0;
 }
 
+#myDialog header img {
+    position: absolute;
+    top: 16px;
+    left: 88%;
+    cursor: pointer;
+}
+
 #myDialog section {
-    height: 360px;
+    height: 400px;
     width: 330px;
     margin-bottom: 80px;
 }
 
 
 #myDialog #imgDialog {
-    height: 360px;
+    height: 400px;
     width: 330px;
     object-fit: cover;
     overflow: hidden;
@@ -135,9 +142,10 @@ dialog[open] {
 
 #myDialog footer {
     background: none;
+    font-family: Figtree-Medium;
 }
 
-
+/* FONTS */
 @font-face {
     font-family: 'Figtree-Regular';
     font-style: normal;
