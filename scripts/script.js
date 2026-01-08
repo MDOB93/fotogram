@@ -14,18 +14,18 @@ const images = [
 ]
 
 const ImgTitel = [
-    'Berg am See im Winter',
-    'Baum im Schnee',
-    'Vogel auf Ast',
-    'Person auf Stein',
-    'Ente im Wasser',
-    'dunkle Straße Futoristisch',
-    'dunkler Wolkenhimmel',
-    'Wetterauge aus dem Orbit',
-    'Gpard am Stein',
-    'Fjiord Fluss Berg',
-    'Vogel auf steinen',
-    'Berglandschaft Winter'
+    'Mountain Water in Winter',
+    'Tree in the Snow',
+    'Bird on a Branch',
+    'Person on Stone',
+    'Duck in Water',
+    'dark Street Futuristic',
+    'dark cloudy sky',
+    'Weather eye from orbit',
+    'Cheetah on a rock',
+    'Fjord River Mountain',
+    'Bird on Stones',
+    'Winter Mountain Landscape'
 ]
 
 // get HTML-Element -> for-loop to all img -> every img get HTML in DOM | transported index
