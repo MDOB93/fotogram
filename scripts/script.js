@@ -11,7 +11,7 @@ const images = [
     './img/dc4b11f7f36deb9409236c10ebcd6c849b00f447.jpg',
     './img/f1ba9135a20ea8343ad3d5732c6f8a541ec455b5.jpg',
     './img/f2b056a08d5edba809ca216fa6aa66a4bb612ea8.jpg'
-]
+];
 
 const ImgTitel = [
     'Mountain Water in Winter',
@@ -26,90 +26,109 @@ const ImgTitel = [
     'Fjord River Mountain',
     'Bird on Stones',
     'Winter Mountain Landscape'
-]
+];
 
-// get HTML-Element -> for-loop to all img -> every img get HTML in DOM | transported index
-function render(){
-    let contentRef = document.getElementById('content')
-    // i starts 0 -> count all img | hire to 12 (11 0->11 = 12) | call getImgHtml transfers to i
-    for (let i = 0; i < images.length; i++) {
-        contentRef.innerHTML += getImgHtml(i);
-    }
-}
-
-// get index from render() | build div/img get src from array (images)
-function getImgHtml(index) {
-    return `<div class="img-container" onclick="openDialog(${index})" aria-labelledby="imgContainer" aria-describedby="imgContainer"><img src="${images[index]}" alt="${ImgTitel[index]}" ></div>`
-}
-
+const contentRef = document.getElementById('content');
 const dialogRef = document.getElementById('myDialog');
 const dialogImgRef = document.getElementById('imgDialog');
-const dialogTitleRef = document.getElementById('dialogTitle')
-const imgCountRef = document.getElementById('imgCounter')
-const btnForRef = document.getElementById('forBtnIMG')
-const btnBackRef = document.getElementById('backBtnImg')
+const dialogTitleRef = document.getElementById('dialogTitle');
+const imgCountRef = document.getElementById('imgCounter');
+const btnForRef = document.getElementById('forBtnIMG');
+const btnBackRef = document.getElementById('backBtnImg');
 
+function render() {
+    images.forEach((_, i) => {
+        contentRef.innerHTML += getImgHtml(i);
+    });
+}
+// HTML für ein Bild
+function getImgHtml(index) {
+    return `
+        <div
+            class="img-container"
+            id="imgContainer${index}"
+            tabindex="0"
+            onclick="openDialog(${index})"
+            onkeydown="handleImgKeydown(event, ${index})"
+        >
+            <img src="${images[index]}" alt="${ImgTitel[index]}">
+        </div>
+    `;
+}
+function handleImgKeydown(event, index) {
+    const key = event.key;
+
+    if (key === 'Enter' || key === ' ') {
+        if (key === ' ') event.preventDefault(); // kein Scrollen
+        openDialog(index);
+    } else if (key === 'ArrowRight') {
+        event.preventDefault();
+        focusNextImage(index);
+    } else if (key === 'ArrowLeft') {
+        event.preventDefault();
+        focusPrevImage(index);
+    }
+}
+// Fokusfunktionen für Galerie
+function focusImage(index) {
+    document.getElementById(`imgContainer${index}`).focus();
+}
+function focusNextImage(index) {
+    focusImage((index + 1) % images.length);
+}
+function focusPrevImage(index) {
+    focusImage((index - 1 + images.length) % images.length);
+}
 function openDialog(index) {
-    dialogTitleRef.innerHTML = ImgTitel[index]
-    dialogImgRef.setAttribute('src', images[index])
-    dialogImgRef.setAttribute('alt', ImgTitel[index]+ '.jpg')
-    imgCountRef.innerHTML = (index + 1) + '/' + images.length
-    btnForRef.setAttribute('onclick', `imgForward(${index})`)
-    btnBackRef.setAttribute('onclick', `imgBackwards(${index})`)
-    dialogRef.showModal();
+    // Setzt Startindex und öffnet Dialog
+    dialogImgRef.setAttribute('src', images[index]);
+    dialogTitleRef.innerHTML = ImgTitel[index];
+    changeDialogImage(0);
 }
+// Berechnet Index und aktualisiert Dialoganzeige
+function changeDialogImage(delta = 0) {
+    const currentIndex = getCurrentDialogIndex();
+    const newIndex = (currentIndex + delta + images.length) % images.length;
 
-function imgForward(index) {
-    let nextImg;
+    dialogTitleRef.innerHTML = ImgTitel[newIndex];
+    dialogImgRef.setAttribute('src', images[newIndex]);
+    dialogImgRef.setAttribute('alt', ImgTitel[newIndex] + '.jpg');
+    imgCountRef.innerHTML = `${newIndex + 1}/${images.length}`;
 
-    if (index >= images.length - 1) {
-        nextImg = 0;
-    } else {
-        nextImg = index + 1
-    }// if the last number is reached -> start again from the beginning, else add 1
+    btnForRef.setAttribute('onclick', `changeDialogImage(1)`);
+    btnBackRef.setAttribute('onclick', `changeDialogImage(-1)`);
 
-    dialogTitleRef.innerHTML = ImgTitel[nextImg]
-    dialogImgRef.setAttribute('src', images[nextImg])
-    dialogImgRef.setAttribute('alt', ImgTitel[nextImg]+ '.jpg')
-    imgCountRef.innerHTML = (nextImg + 1) + '/' + images.length
-    btnForRef.setAttribute('onclick', `imgForward(${nextImg})`)
-    btnBackRef.setAttribute('onclick', `imgBackwards(${nextImg})`)
+    if (delta === 0) dialogRef.showModal();
 }
-
-function imgBackwards(index) {
-    let prevImg;
-
-    if (index <= 0) {
-    prevImg = images.length -1 ;
-    } else {
-    prevImg = index - 1
-    }// if last number reached < 0 (-1), then calculate total (1-12 or 0-11) -1, else take current number -1
-
-    dialogTitleRef.innerHTML = ImgTitel[prevImg]
-    dialogImgRef.setAttribute('src', images[prevImg])
-    dialogImgRef.setAttribute('alt', ImgTitel[prevImg]+ '.jpg')
-    imgCountRef.innerHTML = (prevImg + 1) + '/' + images.length
-    btnForRef.setAttribute('onclick', `imgForward(${prevImg})`)
-    btnBackRef.setAttribute('onclick', `imgBackwards(${prevImg})`)
+function getCurrentDialogIndex() {
+    const currentSrc = dialogImgRef.getAttribute('src');
+    return images.indexOf(currentSrc);
 }
+function closeDialog() {
+    dialogRef.close();
+}
+dialogRef.addEventListener('keydown', (event) => {
+    const key = event.key;
 
-    function closeDialog() {
+    if (key === 'ArrowRight') {
+        event.preventDefault();
+        changeDialogImage(1);
+    } else if (key === 'ArrowLeft') {
+        event.preventDefault();
+        changeDialogImage(-1);
+    } else if (key === 'Escape') {
         dialogRef.close();
     }
-
+});
 dialogRef.addEventListener('click', (e) => {
-    if (e.target !== dialogRef) {
-        return
-    }
+    if (e.target !== dialogRef) return;
 
-    const rect = dialogRef.getBoundingClientRect()
+    const rect = dialogRef.getBoundingClientRect();
     const clickedOutside =
         e.clientX < rect.left ||
         e.clientX > rect.right ||
         e.clientY < rect.top ||
-        e.clientY > rect.bottom
+        e.clientY > rect.bottom;
 
-    if (clickedOutside) {
-        dialogRef.close();
-    }
-})
+    if (clickedOutside) dialogRef.close();
+});
