@@ -120,14 +120,14 @@ dialog[open] {
 }
 
 #myDialog section {
-    height: 300px;
+    height: 360px;
     width: 330px;
     margin-bottom: 80px;
 }
 
 
 #myDialog #imgDialog {
-    height: 300px;
+    height: 360px;
     width: 330px;
     object-fit: cover;
     overflow: hidden;

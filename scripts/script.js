@@ -20,9 +20,9 @@ const ImgTitel = [
     'Person auf Stein',
     'Ente im Wasser',
     'dunkle Straße Futoristisch',
-    'dunkler Wolkenhimmel Gewitter',
+    'dunkler Wolkenhimmel',
     'Wetterauge aus dem Orbit',
-    'Puma am Stein',
+    'Gpard am Stein',
     'Fjiord Fluss Berg',
     'Vogel auf steinen',
     'Berglandschaft Winter klarerHimmel'
@@ -93,13 +93,19 @@ function imgBackwards(index) {
     btnBackRef.setAttribute('onclick', `imgBackwards(${prevImg})`)
 }
 
-dialogRef.addEventListener('click', (event) => {
-    if (event.target === dialogRef) {
+dialogRef.addEventListener('click', (e) => {
+    if (e.target !== dialogRef) {
+        return
+    }
+
+    const rect = dialogRef.getBoundingClientRect()
+    const clickedOutside =
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+
+    if (clickedOutside) {
         dialogRef.close();
     }
-});
-
-dialogRef.addEventListener('cancel', (event) => {
-    event.preventDefault();
-    dialogRef.close();
-});
+})
