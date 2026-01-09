@@ -126,12 +126,12 @@ dialog main {
 }
 #myDialog section {
     height: 400px;
-    width: 265px;
-    margin-bottom: 80px;
+    width: 250px;
+    margin-bottom: 20px;
 }
 #myDialog #imgDialog {
     height: 400px;
-    width: 265px;
+    width: 250px;
     object-fit: cover;
     overflow: hidden;
 }
